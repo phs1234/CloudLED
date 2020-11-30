@@ -1,4 +1,4 @@
-package com.devreport.cloud;
+package com.devreport.cloud.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

@@ -32,15 +32,6 @@
             android:fontFamily="@font/noto_sans"
             android:includeFontPadding="false"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="24℃"
-            android:textSize="48sp"
-            android:textColor="#ffffff"
-            android:fontFamily="@font/noto_sans"
-            android:includeFontPadding="false"/>
 
         <ImageView
             android:layout_width="108dp"
