@@ -26,7 +26,6 @@ public class ColorPickerFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         LayoutInflater layoutInflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
         mView = layoutInflater.inflate(R.layout.fragment_colorpicker, null);
 
         final ColorPicker colorPicker = mView.findViewById(R.id.ColorPicker);

@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:holocolorpicker="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/tools"
     android:gravity="center"
-    xmlns:holocolorpicker="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="#884500">
+    android:background="@drawable/colorpicker_bg">
 
 
     <RelativeLayout
@@ -28,8 +27,7 @@
             android:id="@+id/OvalImageView"
             android:layout_width="72dp"
             android:layout_height="72dp"
-            android:layout_centerInParent="true"
-            app:srcCompat="@drawable/colorpicker_white_circle"/>
+            android:layout_centerInParent="true"/>
 
         <TextView
             android:id="@+id/RGBTextView"
