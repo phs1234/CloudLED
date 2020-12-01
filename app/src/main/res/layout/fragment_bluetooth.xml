@@ -3,11 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:android.support="http://schemas.android.com/tools"
     android:background="@drawable/bluetooth_bg">
 
     <LinearLayout
-        android:layout_width="280dp"
-        android:layout_height="640dp"
+        android:layout_width="240dp"
+        android:layout_height="600dp"
         android:orientation="vertical"
         android:layout_centerInParent="true">
 
@@ -16,14 +17,16 @@
             android:layout_height="wrap_content"
             android:text="Paired"
             android:textColor="#ffffff"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            android:fontFamily="@font/noto_sans"
+            android:includeFontPadding="false"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/pairedRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="12dp"
             android:paddingBottom="48dp">
 
         </androidx.recyclerview.widget.RecyclerView>
@@ -31,16 +34,18 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:text="Searched"
             android:textColor="#ffffff"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            android:fontFamily="@font/noto_sans"
+            android:includeFontPadding="false"/>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/searchedRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:layout_marginTop="16dp">
+            android:layout_marginTop="12dp">
 
         </androidx.recyclerview.widget.RecyclerView>
     </LinearLayout>

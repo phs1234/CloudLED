@@ -6,6 +6,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.devreport.cloud.fragment.ColorPickerFragment;
 import com.devreport.cloud.fragment.WeatherFragment;
+import com.devreport.cloud.fragment.bluetooth.BluetoothFragment;
 
 public class PagerAdapter extends FragmentStateAdapter {
     public PagerAdapter(FragmentActivity fragmentActivity) {
@@ -16,8 +17,10 @@ public class PagerAdapter extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         switch (position) {
             case 0:
-                return new WeatherFragment();
+                return new BluetoothFragment();
             case 1:
+                return new WeatherFragment();
+            case 2:
                 return new ColorPickerFragment();
         }
         return null;
@@ -25,6 +28,6 @@ public class PagerAdapter extends FragmentStateAdapter {
 
     @Override
     public int getItemCount() {
-        return 2;
+        return 3;
     }
 }
