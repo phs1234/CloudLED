@@ -7,6 +7,7 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
 
+import com.devreport.cloud.fragment.bluetooth.BluetoothService;
 import com.firebase.cloud.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,5 +23,9 @@ public class MainActivity extends AppCompatActivity {
         mViewpager = findViewById(R.id.viewPager);
         mPagerAdapter = new PagerAdapter(this);
         mViewpager.setAdapter(mPagerAdapter);
+
+        //BluetoothService.getInstance().writeData("Hello world");
+
+
     }
 }

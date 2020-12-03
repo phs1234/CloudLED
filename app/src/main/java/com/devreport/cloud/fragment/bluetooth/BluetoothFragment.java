@@ -1,29 +1,28 @@
 package com.devreport.cloud.fragment.bluetooth;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.firebase.cloud.R;
+import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
+import com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator;
 
 public class BluetoothFragment extends Fragment {
     public static final String TAG = "BluetoothFragment";
 
-    public static final int REQUEST_ENABLE_BT = 101;
-    public View mView;
+    private static final int REQUEST_ENABLE_BT = 101;
+
+    private View mView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,15 +31,8 @@ public class BluetoothFragment extends Fragment {
         LayoutInflater layoutInflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mView = layoutInflater.inflate(R.layout.fragment_bluetooth, null);
 
-        RecyclerView pairedRecyclerView = mView.findViewById(R.id.pairedRecyclerView);
-        RecyclerView searchedRecyclerVIew = mView.findViewById(R.id.searchedRecyclerView);
-
-        pairedRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        pairedRecyclerView.addItemDecoration(new DividerItemDecoration(pairedRecyclerView.getContext(), DividerItemDecoration.VERTICAL));
-
-        // 퍼포먼스를 향상되게 해준다
-        pairedRecyclerView.setHasFixedSize(true);
-        searchedRecyclerVIew.setHasFixedSize(true);
+        ViewPager2 pairingViewPager = mView.findViewById(R.id.pairingViewPager);
+        DotsIndicator indicator = mView.findViewById(R.id.DotsIndicator);
 
         // 블루투스 기능 활성화
         BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
@@ -53,8 +45,10 @@ public class BluetoothFragment extends Fragment {
         // 페어링된 기기확인
         BluetoothDevice[] bluetoothDevices = bluetoothAdapter.getBondedDevices().toArray(new BluetoothDevice[0]);
 
-        BluetoothViewAdapter viewAdapter = new BluetoothViewAdapter(bluetoothDevices);
-        pairedRecyclerView.setAdapter(viewAdapter);
+        PagerAdapter pagerAdapter= new PagerAdapter(this, bluetoothDevices);
+        pairingViewPager.setAdapter(pagerAdapter);
+
+        indicator.setViewPager2(pairingViewPager);
     }
 
     @Override
