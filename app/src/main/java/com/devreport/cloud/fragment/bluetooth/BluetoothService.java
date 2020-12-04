@@ -3,51 +3,70 @@ package com.devreport.cloud.fragment.bluetooth;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
+import android.content.Context;
+import android.util.Log;
+import android.widget.Toast;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.UUID;
 
 public class BluetoothService {
-    public static final String TAG = "BluetoothService";
-    public static final UUID MY_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");     //임의의 숫자라도 괜찮다
+    private static final String TAG = "BluetoothService";
+    private static final UUID MY_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");     //임의의 숫자라도 괜찮다
 
-    private static BluetoothService instance;
-    public static String macAddress = "98:D3:71:FD:5F:AF";
+    private static String macAddress = "98:D3:71:FD:5F:AF";
 
-    public static BluetoothService getInstance() {
-        if (instance == null) {
-            instance = new BluetoothService();
+    private static BluetoothAdapter bluetoothAdapter;
+    private static BluetoothDevice bluetoothDevice;
+    private static BluetoothSocket bluetoothSocket;
+    private static OutputStream outputStream;
+
+    public static boolean Connect(String macAddress, Context context) {
+        try {
+            bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+            BluetoothService.macAddress = macAddress;
+            bluetoothDevice = bluetoothAdapter.getRemoteDevice(macAddress);
+            bluetoothSocket = bluetoothDevice.createInsecureRfcommSocketToServiceRecord(MY_UUID);
+
+            bluetoothSocket.connect();
+
+            outputStream = bluetoothSocket.getOutputStream();
+
+            Toast.makeText(context, "연결 성공", Toast.LENGTH_SHORT).show();
+
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+
+            Toast.makeText(context, "연결 실패", Toast.LENGTH_SHORT).show();
+
+            return false;
         }
-
-        return instance;
     }
 
-    private BluetoothAdapter mBluetoothAdapter;
-    private BluetoothDevice mBluetoothDevice;
-    private BluetoothSocket mBluetoothSocket;
-    private OutputStream mOutputStream;
-
-    public BluetoothService() {
+    public static boolean writeData(String data) {
         try {
-            mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-            mBluetoothDevice = mBluetoothAdapter.getRemoteDevice(macAddress);
-            mBluetoothSocket = mBluetoothDevice.createInsecureRfcommSocketToServiceRecord(MY_UUID);
+            outputStream.write(data.getBytes());
 
-            mBluetoothSocket.connect();
-
-            mOutputStream = mBluetoothSocket.getOutputStream();
+            return true;
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        return false;
     }
 
-    public void writeData(String data) {
+    public static boolean writeData(int red, int green, int blue) {
         try {
-            mOutputStream.write(data.getBytes());
+            String data = red + "," + green + "," + blue + "@";
+            outputStream.write(data.getBytes());
+
+            return true;
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        return false;
     }
 }

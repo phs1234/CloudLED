@@ -5,7 +5,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.devreport.cloud.fragment.ColorPickerFragment;
-import com.devreport.cloud.fragment.WeatherFragment;
+import com.devreport.cloud.fragment.weather.WeatherFragment;
 import com.devreport.cloud.fragment.bluetooth.BluetoothFragment;
 
 public class PagerAdapter extends FragmentStateAdapter {

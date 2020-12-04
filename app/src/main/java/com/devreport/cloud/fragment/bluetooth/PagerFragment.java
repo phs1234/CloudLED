@@ -3,6 +3,7 @@ package com.devreport.cloud.fragment.bluetooth;
 import android.bluetooth.BluetoothDevice;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,9 +12,12 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.devreport.cloud.MainActivity;
 import com.firebase.cloud.R;
 
 public class PagerFragment extends Fragment {
+    private static final String TAG = "PagerFragment";
+
     private BluetoothDevice[] bluetoothDevices;
     private int page;
 
@@ -32,17 +36,31 @@ public class PagerFragment extends Fragment {
 
         view = layoutInflater.inflate(R.layout.fragment_bluetooth_pager, null);
 
-        LinearLayout linearLayout = view.findViewById(R.id.LinearLayout);
+        final LinearLayout linearLayout = view.findViewById(R.id.LinearLayout);
 
         for (int index = 0; index < 4; index++) {
-            if (4 * page + index < bluetoothDevices.length) {
+            final int position = 4 * page + index;
+
+            if (position < bluetoothDevices.length) {
                 View view = layoutInflater.inflate(R.layout.holder_bluetooth, null);
 
                 TextView nameTextView = view.findViewById(R.id.nameTextView);
                 TextView addressTextView = view.findViewById(R.id.addressTextView);
 
-                nameTextView.setText(bluetoothDevices[4 * page + index].getName());
-                addressTextView.setText(bluetoothDevices[4 * page + index].getAddress());
+                nameTextView.setText(bluetoothDevices[position].getName());
+                addressTextView.setText(bluetoothDevices[position].getAddress());
+
+                view.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Log.d(TAG, position + "");
+                        Log.d(TAG, bluetoothDevices[position].getName());
+                        Log.d(TAG, bluetoothDevices[position].getAddress());
+
+                        BluetoothDialog bluetoothDialog = new BluetoothDialog(getContext(), bluetoothDevices[position].getName(), bluetoothDevices[position].getAddress());
+                        bluetoothDialog.show();
+                    }
+                });
 
                 linearLayout.addView(view);
             }

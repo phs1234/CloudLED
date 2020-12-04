@@ -1,31 +1,33 @@
 package com.devreport.cloud;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
 
-import com.devreport.cloud.fragment.bluetooth.BluetoothService;
 import com.firebase.cloud.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ViewPager2 mViewpager;
-    private FragmentStateAdapter mPagerAdapter;
+    private static ViewPager2 viewpager;
+
+    public static void moveToMainPage(int page) {
+        if (viewpager != null)
+            viewpager.setCurrentItem(page);
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mViewpager = findViewById(R.id.viewPager);
-        mPagerAdapter = new PagerAdapter(this);
-        mViewpager.setAdapter(mPagerAdapter);
+        viewpager = findViewById(R.id.viewPager);
 
-        //BluetoothService.getInstance().writeData("Hello world");
-
-
+        FragmentStateAdapter pagerAdapter = new PagerAdapter(this);
+        viewpager.setAdapter(pagerAdapter);
     }
+
+
 }

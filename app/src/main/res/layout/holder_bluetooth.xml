@@ -2,37 +2,43 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:orientation="horizontal">
-
-    <ImageView
-        android:layout_width="28dp"
-        android:layout_height="60dp"
-        app:srcCompat="@drawable/icon_device"/>
-
+    android:layout_height='wrap_content'
+    android:orientation="vertical">
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginLeft="8dp">
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
 
-        <TextView
-            android:id="@+id/nameTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textColor="#ffffff"
-            android:fontFamily="@font/noto_sans_bold"
-            android:includeFontPadding="false"/>
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="60dp"
+            app:srcCompat="@drawable/icon_device"/>
 
-        <TextView
-            android:id="@+id/addressTextView"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="4dp"
-            android:textSize="12sp"
-            android:textColor="#ffffff"
-            android:fontFamily="@font/noto_sans_bold"
-            android:includeFontPadding="false"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginLeft="8dp">
+
+            <TextView
+                android:id="@+id/nameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#ffffff"
+                android:fontFamily="@font/noto_sans_bold"
+                android:includeFontPadding="false"/>
+
+            <TextView
+                android:id="@+id/addressTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="4dp"
+                android:textSize="12sp"
+                android:textColor="#ffffff"
+                android:fontFamily="@font/noto_sans_bold"
+                android:includeFontPadding="false"/>
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

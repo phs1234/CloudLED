@@ -19,7 +19,7 @@
             android:text="DongYang Mirae"
             android:textSize="16sp"
             android:textColor="#ffffff"
-            android:fontFamily="@font/noto_sans"
+            android:fontFamily="@font/noto_sans_regular"
             android:includeFontPadding="false"/>
 
         <TextView
@@ -29,7 +29,7 @@
             android:text="Monday April 18"
             android:textSize="12sp"
             android:textColor="#ffffff"
-            android:fontFamily="@font/noto_sans"
+            android:fontFamily="@font/noto_sans_regular"
             android:includeFontPadding="false"/>
 
 
@@ -45,7 +45,7 @@
             android:text="Sunney Day"
             android:textSize="16sp"
             android:textColor="#ffffff"
-            android:fontFamily="@font/noto_sans"
+            android:fontFamily="@font/noto_sans_regular"
             android:includeFontPadding="false"/>
 
         <TextView
@@ -55,7 +55,7 @@
             android:text="산책하기 좋은 날씨네요!"
             android:textSize="16sp"
             android:textColor="#ffffff"
-            android:fontFamily="@font/noto_sans"
+            android:fontFamily="@font/noto_sans_regular"
             android:includeFontPadding="false"/>
 
     </LinearLayout>
