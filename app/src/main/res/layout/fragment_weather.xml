@@ -16,17 +16,16 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="DongYang Mirae"
+            android:text="DongYang"
             android:textSize="16sp"
             android:textColor="#ffffff"
-            android:fontFamily="@font/noto_sans_regular"
+            android:fontFamily="@font/noto_sans_medium"
             android:includeFontPadding="false"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="Monday April 18"
+            android:text="Monday 18 December  8 : 51 am"
             android:textSize="12sp"
             android:textColor="#ffffff"
             android:fontFamily="@font/noto_sans_regular"
@@ -36,27 +35,126 @@
         <ImageView
             android:layout_width="108dp"
             android:layout_height="108dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             app:srcCompat="@drawable/icon_cloud"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sunney Day"
+            android:text="Cloudy Day"
             android:textSize="16sp"
             android:textColor="#ffffff"
-            android:fontFamily="@font/noto_sans_regular"
+            android:fontFamily="@font/noto_sans_bold"
             android:includeFontPadding="false"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
             android:text="산책하기 좋은 날씨네요!"
             android:textSize="16sp"
             android:textColor="#ffffff"
             android:fontFamily="@font/noto_sans_regular"
             android:includeFontPadding="false"/>
+
+        <RelativeLayout
+            android:layout_width="144dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Temperature"
+                android:textSize="12sp"
+                android:textColor="#ffffff"
+                android:fontFamily="@font/noto_sans_regular"
+                android:includeFontPadding="false"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="30°C"
+                android:textSize="12sp"
+                android:textColor="#ffffff"
+                android:fontFamily="@font/noto_sans_regular"
+                android:includeFontPadding="false"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="144dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Humidity"
+                android:textSize="12sp"
+                android:textColor="#ffffff"
+                android:fontFamily="@font/noto_sans_regular"
+                android:includeFontPadding="false"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="54%"
+                android:textSize="12sp"
+                android:textColor="#ffffff"
+                android:fontFamily="@font/noto_sans_regular"
+                android:includeFontPadding="false"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="144dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pressure"
+                android:textSize="12sp"
+                android:textColor="#ffffff"
+                android:fontFamily="@font/noto_sans_regular"
+                android:includeFontPadding="false"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="29 inHg"
+                android:textSize="12sp"
+                android:textColor="#ffffff"
+                android:fontFamily="@font/noto_sans_regular"
+                android:includeFontPadding="false"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="144dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Temperature"
+                android:textSize="12sp"
+                android:textColor="#ffffff"
+                android:fontFamily="@font/noto_sans_regular"
+                android:includeFontPadding="false"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="30°C"
+                android:textSize="12sp"
+                android:textColor="#ffffff"
+                android:fontFamily="@font/noto_sans_regular"
+                android:includeFontPadding="false"/>
+        </RelativeLayout>
 
     </LinearLayout>
 

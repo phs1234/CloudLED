@@ -1,9 +1,9 @@
 package com.devreport.cloud.fragment;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
-import android.os.Debug;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +19,8 @@ import com.larswerkman.holocolorpicker.ColorPicker;
 import com.larswerkman.holocolorpicker.SVBar;
 
 public class ColorPickerFragment extends Fragment {
+    public static final String TAG = "ColorPickerFragment";
+
     public View mView;
 
     @Override
@@ -30,7 +32,7 @@ public class ColorPickerFragment extends Fragment {
 
         final ColorPicker colorPicker = mView.findViewById(R.id.ColorPicker);
         final TextView RGBTextView = mView.findViewById(R.id.RGBTextView);
-        final ImageView ovalImageView = mView.findViewById(R.id.OvalImageView);
+        final ImageView iconImageView = mView.findViewById(R.id.IconImageView);
         final SVBar SVBar = mView.findViewById(R.id.SVBar);
 
         colorPicker.addSVBar(SVBar);
@@ -39,27 +41,29 @@ public class ColorPickerFragment extends Fragment {
             @Override
             public void onColorChanged(int color) {
                 int red = (color >> 16) & 0xff;
-                int blue = (color >> 8) & 0xff;
-                int green = color & 0xff;
+                int green = (color >> 8) & 0xff;
+                int blue = color & 0xff;
 
-                RGBTextView.setText("#" + Integer.toHexString(red).toUpperCase()
-                                        + Integer.toHexString(blue).toUpperCase()
-                                        + Integer.toHexString(green).toUpperCase());
+                String message = "#" + String.format("%02X", red)
+                                + String.format("%02X", green)
+                                + String.format("%02X", blue);
 
-                ovalImageView.setBackgroundColor(color);
+                RGBTextView.setText(message);
+
+                iconImageView.setColorFilter(Color.parseColor(message), PorterDuff.Mode.SRC_IN);
             }
         });
 
-        colorPicker.setOnColorSelectedListener(new ColorPicker.OnColorSelectedListener() {
-            @Override
-            public void onColorSelected(int color) {
-                int red = (color >> 16) & 0xff;
-                int blue = (color >> 8) & 0xff;
-                int green = color & 0xff;
-
-                BluetoothService.writeData(red, green, blue);
-            }
-        });
+//        colorPicker.setOnColorSelectedListener(new ColorPicker.OnColorSelectedListener() {
+//            @Override
+//            public void onColorSelected(int color) {
+//                int red = (color >> 16) & 0xff;
+//                int blue = (color >> 8) & 0xff;
+//                int green = color & 0xff;
+//
+//                BluetoothService.writeData(red, green, blue);
+//            }
+//        });
 
 
 

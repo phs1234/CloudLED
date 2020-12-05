@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:holocolorpicker="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -24,17 +25,18 @@
             holocolorpicker:color_pointer_halo_radius="12dp" />
 
         <ImageView
-            android:id="@+id/OvalImageView"
+            android:id="@+id/IconImageView"
             android:layout_width="72dp"
             android:layout_height="72dp"
-            android:layout_centerInParent="true"/>
+            android:layout_centerInParent="true"
+            app:srcCompat="@drawable/colorpicker_img_cloud"/>
 
         <TextView
             android:id="@+id/RGBTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_above="@+id/OvalImageView"
+            android:layout_above="@+id/IconImageView"
             android:layout_marginBottom="24dp"
             android:text="#19584A"
             android:textSize="24sp"
@@ -47,7 +49,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/OvalImageView"
+            android:layout_below="@+id/IconImageView"
             android:layout_marginTop="24dp"
             holocolorpicker:bar_thickness="12dp"
             holocolorpicker:bar_length = "120dp"
