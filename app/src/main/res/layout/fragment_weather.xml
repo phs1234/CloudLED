@@ -13,14 +13,27 @@
         android:layout_centerHorizontal="true"
         android:gravity="center">
 
-        <TextView
+        <LinearLayout
+            android:id="@+id/MapButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="DongYang"
-            android:textSize="16sp"
-            android:textColor="#ffffff"
-            android:fontFamily="@font/noto_sans_medium"
-            android:includeFontPadding="false"/>
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginRight="8dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/map_icon_marker"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DongYang"
+                android:textSize="16sp"
+                android:textColor="#ffffff"
+                android:fontFamily="@font/noto_sans_medium"
+                android:includeFontPadding="false"/>
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -71,6 +84,7 @@
                 android:includeFontPadding="false"/>
 
             <TextView
+                android:id="@+id/TempTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -96,6 +110,7 @@
                 android:includeFontPadding="false"/>
 
             <TextView
+                android:id="@+id/HumidityTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -121,6 +136,7 @@
                 android:includeFontPadding="false"/>
 
             <TextView
+                android:id="@+id/PressureTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -139,13 +155,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Temperature"
+                android:text="Wind"
                 android:textSize="12sp"
                 android:textColor="#ffffff"
                 android:fontFamily="@font/noto_sans_regular"
                 android:includeFontPadding="false"/>
 
             <TextView
+                android:id="@+id/WindTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"

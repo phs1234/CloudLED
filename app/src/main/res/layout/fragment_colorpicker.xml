@@ -29,7 +29,7 @@
             android:layout_width="72dp"
             android:layout_height="72dp"
             android:layout_centerInParent="true"
-            app:srcCompat="@drawable/colorpicker_img_cloud"/>
+            app:srcCompat="@drawable/colorpicker_icon_cloud"/>
 
         <TextView
             android:id="@+id/RGBTextView"
