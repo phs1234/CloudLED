@@ -26,6 +26,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+
+
         LatLng SEOUL = new LatLng(37.56, 126.97);
 
         MarkerOptions markerOptions = new MarkerOptions();
@@ -33,19 +35,9 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         markerOptions.title("서울");
         markerOptions.snippet("한국의 수도");
 
-
-
         googleMap.addMarker(markerOptions);
 
-        // 기존에 사용하던 다음 2줄은 문제가 있습니다.
-
-        // CameraUpdateFactory.zoomTo가 오동작하네요.
-        //mMap.moveCamera(CameraUpdateFactory.newLatLng(SEOUL));
-        //mMap.animateCamera(CameraUpdateFactory.zoomTo(10));
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(SEOUL, 1));
-
-
-
     }
 
     @Override
