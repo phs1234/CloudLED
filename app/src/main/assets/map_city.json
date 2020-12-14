@@ -1,0 +1,58 @@
+[
+  {
+    "id": 5367815,
+    "name": "London",
+    "state": "CA",
+    "country": "US",
+    "coord": {
+      "lon": -119.443176,
+      "lat": 36.476059
+    },
+    "desc": ""
+  }, {
+    "id": 5128581,
+    "name": "New York City",
+    "state": "NY",
+    "country": "US",
+    "coord": {
+      "lon": -74.005966,
+      "lat": 40.714272
+    }
+  }, {
+    "id": 6455259,
+    "name": "Paris",
+    "state": "",
+    "country": "FR",
+    "coord": {
+      "lon": 2.35236,
+      "lat": 48.856461
+    }
+  }, {
+    "id": 1835847,
+    "name": "Seoul",
+    "state": "",
+    "country": "KR",
+    "coord": {
+      "lon": 127.0,
+      "lat": 37.583328
+    }
+  }, {
+    "id": 98182,
+    "name": "Baghdad",
+    "state": "",
+    "country": "IQ",
+    "coord": {
+      "lon": 44.400879,
+      "lat": 33.34058
+    }
+  }, {
+    "id": 1850147,
+    "name": "Tokyo",
+    "state": "",
+    "country": "JP",
+    "coord": {
+      "lon": 139.691711,
+      "lat": 35.689499
+    }
+  }
+]

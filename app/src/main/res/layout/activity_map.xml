@@ -38,6 +38,7 @@
             android:background="@drawable/map_bg_drawer">
 
             <TextView
+                android:id="@+id/NameTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
@@ -49,17 +50,19 @@
                 android:includeFontPadding="false"/>
 
             <TextView
+                android:id="@+id/LatLngTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:layout_gravity="center"
-                android:text="Lat 37.56 Lon26.27"
+                android:text="Lat 37.56 Lon 26.27"
                 android:textColor="#ffffff"
                 android:textSize="12sp"
                 android:fontFamily="@font/noto_sans_medium"
                 android:includeFontPadding="false"/>
 
             <TextView
+                android:id="@+id/DescTextView"
                 android:layout_width="240dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"

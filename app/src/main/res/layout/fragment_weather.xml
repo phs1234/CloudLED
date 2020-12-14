@@ -9,7 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="48dp"
         android:layout_centerHorizontal="true"
         android:gravity="center">
 
@@ -18,6 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <ImageView
                 android:layout_width="12dp"
                 android:layout_height="12dp"
@@ -26,19 +27,21 @@
                 app:srcCompat="@drawable/map_icon_marker"/>
 
             <TextView
+                android:id="@+id/CityNameTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="DongYang"
+                android:text="Seoul"
                 android:textSize="16sp"
                 android:textColor="#ffffff"
-                android:fontFamily="@font/noto_sans_medium"
+                android:fontFamily="@font/noto_sans_bold"
                 android:includeFontPadding="false"/>
         </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Monday 18 December  8 : 51 am"
+            android:layout_marginTop="4dp"
+            android:text="Monday 18 December"
             android:textSize="12sp"
             android:textColor="#ffffff"
             android:fontFamily="@font/noto_sans_regular"
@@ -46,31 +49,36 @@
 
 
         <ImageView
+            android:id="@+id/CloudImageView"
             android:layout_width="108dp"
             android:layout_height="108dp"
-            android:layout_marginTop="8dp"
-            app:srcCompat="@drawable/icon_cloud"/>
+            android:layout_marginTop="24dp"
+            app:srcCompat="@drawable/icon_cloud_cloudy"/>
 
         <TextView
+            android:id="@+id/CloudTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:text="Cloudy Day"
-            android:textSize="16sp"
+            android:textSize="20sp"
             android:textColor="#ffffff"
             android:fontFamily="@font/noto_sans_bold"
             android:includeFontPadding="false"/>
 
         <TextView
+            android:id="@+id/CloudSubTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:text="산책하기 좋은 날씨네요!"
-            android:textSize="16sp"
+            android:textSize="12sp"
             android:textColor="#ffffff"
-            android:fontFamily="@font/noto_sans_regular"
+            android:fontFamily="@font/noto_sans_medium"
             android:includeFontPadding="false"/>
 
         <RelativeLayout
-            android:layout_width="144dp"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="48dp">
 
@@ -91,12 +99,12 @@
                 android:text="30°C"
                 android:textSize="12sp"
                 android:textColor="#ffffff"
-                android:fontFamily="@font/noto_sans_regular"
+                android:fontFamily="@font/noto_sans_medium"
                 android:includeFontPadding="false"/>
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="144dp"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp">
 
@@ -117,12 +125,12 @@
                 android:text="54%"
                 android:textSize="12sp"
                 android:textColor="#ffffff"
-                android:fontFamily="@font/noto_sans_regular"
+                android:fontFamily="@font/noto_sans_medium"
                 android:includeFontPadding="false"/>
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="144dp"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp">
 
@@ -143,12 +151,12 @@
                 android:text="29 inHg"
                 android:textSize="12sp"
                 android:textColor="#ffffff"
-                android:fontFamily="@font/noto_sans_regular"
+                android:fontFamily="@font/noto_sans_medium"
                 android:includeFontPadding="false"/>
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="144dp"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp">
 
@@ -169,7 +177,7 @@
                 android:text="30°C"
                 android:textSize="12sp"
                 android:textColor="#ffffff"
-                android:fontFamily="@font/noto_sans_regular"
+                android:fontFamily="@font/noto_sans_medium"
                 android:includeFontPadding="false"/>
         </RelativeLayout>
 
