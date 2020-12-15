@@ -59,7 +59,9 @@ public class BluetoothService {
     public static boolean writeData(int red, int green, int blue) {
         try {
             String data = red + "," + green + "," + blue + "@";
-            outputStream.write(data.getBytes());
+
+            if (outputStream != null)
+                outputStream.write(data.getBytes());
 
             return true;
         } catch (IOException e) {

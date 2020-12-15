@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.devreport.cloud.main.fragment.bluetooth.BluetoothService;
 import com.devreport.cloud.map.MapActivity;
 import com.firebase.cloud.R;
 
@@ -117,10 +118,25 @@ public class WeatherFragment extends Fragment {
                 }
 
                 // 세부사항 바꾸기
-                tempTextView.setText((int)(result.getDetailData().getTemp() - 273) + " °C");
+                int temp = (int)(result.getDetailData().getTemp() - 273);
+
+                tempTextView.setText(temp + " °C");
                 humidityTextView.setText(result.getDetailData().getHumidity() + " %");
                 pressureTextView.setText(result.getDetailData().getPressure() + " inHg");
                 windTextView.setText(result.getWindData().getSpeed() + " mph");
+
+                // 온도에 따라 구름 LED에 색깔데이터 보내기
+                if (temp >= 28) {
+                    BluetoothService.writeData(255, 128, 0);
+                } else if (temp >= 18) {
+                    BluetoothService.writeData(128, 255, 0);
+                } else if (temp >= 10) {
+                    BluetoothService.writeData(0, 128, 128);
+                } else if (temp >= 0) {
+                    BluetoothService.writeData(0, 128, 255);
+                } else {
+                    BluetoothService.writeData(0, 0, 255);
+                }
             }
 
             @Override

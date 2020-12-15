@@ -24,7 +24,7 @@
                 android:layout_height="12dp"
                 android:layout_marginRight="8dp"
                 android:layout_gravity="center"
-                app:srcCompat="@drawable/map_icon_marker"/>
+                app:srcCompat="@drawable/icon_marker"/>
 
             <TextView
                 android:id="@+id/CityNameTextView"
