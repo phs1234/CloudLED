@@ -10,13 +10,7 @@ import com.firebase.cloud.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static ViewPager2 viewpager;
-
-    public static void moveToMainPage(int page) {
-        if (viewpager != null)
-            viewpager.setCurrentItem(page);
-
-    }
+    public static ViewPager2 viewpager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +22,4 @@ public class MainActivity extends AppCompatActivity {
         FragmentStateAdapter pagerAdapter = new PagerAdapter(this);
         viewpager.setAdapter(pagerAdapter);
     }
-
-
 }

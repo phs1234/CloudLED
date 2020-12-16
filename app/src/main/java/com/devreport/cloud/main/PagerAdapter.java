@@ -9,6 +9,10 @@ import com.devreport.cloud.main.fragment.weather.WeatherFragment;
 import com.devreport.cloud.main.fragment.bluetooth.BluetoothFragment;
 
 public class PagerAdapter extends FragmentStateAdapter {
+    public BluetoothFragment bluetoothFragment = BluetoothFragment.getInstance();
+    public WeatherFragment weatherFragment = WeatherFragment.getInstance();
+    public ColorPickerFragment colorPickerFragment = ColorPickerFragment.getInstance();
+
     public PagerAdapter(FragmentActivity fragmentActivity) {
         super(fragmentActivity);
     }
@@ -17,11 +21,11 @@ public class PagerAdapter extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         switch (position) {
             case 0:
-                return new BluetoothFragment();
+                return bluetoothFragment;
             case 1:
-                return new WeatherFragment();
+                return weatherFragment;
             case 2:
-                return new ColorPickerFragment();
+                return colorPickerFragment;
         }
         return null;
     }

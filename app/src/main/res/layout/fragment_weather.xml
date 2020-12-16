@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/WeatherLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/main_bg">
@@ -191,6 +192,7 @@
         app:srcCompat="@drawable/main_bg_cloud" />
 
     <ImageView
+        android:id="@+id/Dessert3ImageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -198,6 +200,7 @@
         app:srcCompat="@drawable/main_bg_dessert3" />
 
     <ImageView
+        android:id="@+id/Dessert2ImageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -205,6 +208,7 @@
         app:srcCompat="@drawable/main_bg_dessert2" />
 
     <ImageView
+        android:id="@+id/Dessert1ImageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

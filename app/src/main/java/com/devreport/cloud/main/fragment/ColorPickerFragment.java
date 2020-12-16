@@ -3,7 +3,9 @@ package com.devreport.cloud.main.fragment;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,19 +22,35 @@ import com.larswerkman.holocolorpicker.SVBar;
 public class ColorPickerFragment extends Fragment {
     public static final String TAG = "ColorPickerFragment";
 
-    public View mView;
+    private static ColorPickerFragment instance;
+
+    private View view;
+
+    private GradientDrawable bgGradient;
+
+    public static ColorPickerFragment getInstance() {
+        if(instance == null) {
+            instance = new ColorPickerFragment();
+        }
+
+        return instance;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         LayoutInflater layoutInflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        mView = layoutInflater.inflate(R.layout.fragment_colorpicker, null);
+        view = layoutInflater.inflate(R.layout.fragment_colorpicker, null);
 
-        final ColorPicker colorPicker = mView.findViewById(R.id.ColorPicker);
-        final TextView RGBTextView = mView.findViewById(R.id.RGBTextView);
-        final ImageView iconImageView = mView.findViewById(R.id.IconImageView);
-        final SVBar SVBar = mView.findViewById(R.id.SVBar);
+        bgGradient = (GradientDrawable) view.findViewById(R.id.ColorPickerLayout).getBackground();
+
+        Log.d(TAG, "ON");
+
+        final ColorPicker colorPicker = view.findViewById(R.id.ColorPicker);
+        final TextView RGBTextView = view.findViewById(R.id.RGBTextView);
+        final ImageView iconImageView = view.findViewById(R.id.IconImageView);
+        final SVBar SVBar = view.findViewById(R.id.SVBar);
 
         colorPicker.addSVBar(SVBar);
 
@@ -76,6 +94,10 @@ public class ColorPickerFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return mView;
+        return view;
+    }
+
+    public GradientDrawable getBgGradient() {
+        return bgGradient;
     }
 }
