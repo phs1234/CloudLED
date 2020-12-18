@@ -15,6 +15,7 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import com.devreport.cloud.main.fragment.bluetooth.BluetoothService;
+import com.devreport.cloud.service.AnimateService;
 import com.firebase.cloud.R;
 import com.larswerkman.holocolorpicker.ColorPicker;
 import com.larswerkman.holocolorpicker.SVBar;
@@ -45,31 +46,33 @@ public class ColorPickerFragment extends Fragment {
 
         bgGradient = (GradientDrawable) view.findViewById(R.id.ColorPickerLayout).getBackground();
 
-        Log.d(TAG, "ON");
-
         final ColorPicker colorPicker = view.findViewById(R.id.ColorPicker);
         final TextView RGBTextView = view.findViewById(R.id.RGBTextView);
         final ImageView iconImageView = view.findViewById(R.id.IconImageView);
         final SVBar SVBar = view.findViewById(R.id.SVBar);
 
+        // 배경 그라디언트 설정
+        if (getArguments() != null) {
+            int[] colorArray = {Color.parseColor(getArguments().getString("topTo")), Color.parseColor(getArguments().getString("bottomTo"))};
+            bgGradient.setColors(colorArray);
+        }
+
+        // 컬러피커 세팅
         colorPicker.addSVBar(SVBar);
 
-        colorPicker.setOnColorChangedListener(new ColorPicker.OnColorChangedListener() {
-            @Override
-            public void onColorChanged(int color) {
-                int red = (color >> 16) & 0xff;
-                int green = (color >> 8) & 0xff;
-                int blue = color & 0xff;
+        colorPicker.setOnColorChangedListener(color -> {
+            int red = (color >> 16) & 0xff;
+            int green = (color >> 8) & 0xff;
+            int blue = color & 0xff;
 
-                String message = "#" + String.format("%02X", red)
-                                + String.format("%02X", green)
-                                + String.format("%02X", blue);
+            String message = "#" + String.format("%02X", red)
+                            + String.format("%02X", green)
+                            + String.format("%02X", blue);
 
-                RGBTextView.setText(message);
-                iconImageView.setColorFilter(Color.parseColor(message), PorterDuff.Mode.SRC_IN);
+            RGBTextView.setText(message);
+            iconImageView.setColorFilter(Color.parseColor(message), PorterDuff.Mode.SRC_IN);
 
-                BluetoothService.writeData(red, green, blue);
-            }
+            BluetoothService.writeData(red, green, blue);
         });
 
 //        colorPicker.setOnColorSelectedListener(new ColorPicker.OnColorSelectedListener() {

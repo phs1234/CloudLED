@@ -27,8 +27,10 @@ import androidx.fragment.app.Fragment;
 import com.devreport.cloud.main.MainActivity;
 import com.devreport.cloud.main.PagerAdapter;
 import com.devreport.cloud.main.fragment.ColorPickerFragment;
+import com.devreport.cloud.main.fragment.bluetooth.BluetoothFragment;
 import com.devreport.cloud.main.fragment.bluetooth.BluetoothService;
 import com.devreport.cloud.map.MapActivity;
+import com.devreport.cloud.service.AnimateService;
 import com.firebase.cloud.R;
 
 import java.util.ArrayList;
@@ -125,6 +127,7 @@ public class WeatherFragment extends Fragment {
         return view;
     }
 
+    // 맵 화면에서 돌아왔을 때
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         if (requestCode == MAP_REQUEST_CODE) {
@@ -180,44 +183,28 @@ public class WeatherFragment extends Fragment {
 
                 // 온도에 따라 배경바꾸고 구름 LED에 데이터 보내기
                 if (temp >= 30) {
-                    changeGradientColor(bgGradient, "#F58563", "#792020", 500);
-
-                    changeImageColor(dessert1ImageView, "#4A130A", 500);
-                    changeImageColor(dessert2ImageView, "#76271D", 500);
-                    changeImageColor(dessert3ImageView, "#943535", 500);
+                    String[] colorArray = new String[]{"#FF9A7C", "#F58563", "#F58563", "#792020", "#4A130A", "#000000", "#4A130A", "#76271D", "#943535"};
+                    animateByWeatherData(colorArray);
 
                     BluetoothService.writeData(255, 128, 0);
                 } else if (temp >= 20) {
-                    changeGradientColor(bgGradient, "#F0B07C", "#DE733C", 500);
-
-                    changeImageColor(dessert1ImageView, "#884500", 500);
-                    changeImageColor(dessert2ImageView, "#B97738", 500);
-                    changeImageColor(dessert3ImageView, "#CC915C", 500);
+                    String[] colorArray = new String[]{"#EBB589", "#F0B07C", "#F0B07C", "#DE733C", "#884500", "#000000", "#884500", "#B97738", "#CC915C"};
+                    animateByWeatherData(colorArray);
 
                     BluetoothService.writeData(128, 255, 0);
                 } else if (temp >= 10) {
-                    changeGradientColor(bgGradient, "#81CF5E", "#26803C", 500);
-
-                    changeImageColor(dessert1ImageView, "#0A4A25", 500);
-                    changeImageColor(dessert2ImageView, "#1D7624", 500);
-                    changeImageColor(dessert3ImageView, "#569435", 500);
+                    String[] colorArray = new String[]{"#92DB71", "#81CF5E", "#81CF5E", "#26803C", "#0A4A25", "#000000", "#0A4A25", "#1D7624", "#569435"};
+                    animateByWeatherData(colorArray);
 
                     BluetoothService.writeData(0, 128, 128);
                 } else if (temp >= 0) {
-                    changeGradientColor(bgGradient, "#63B2F5", "#322079", 500);
-
-                    changeImageColor(dessert1ImageView, "#0A194A", 500);
-                    changeImageColor(dessert2ImageView, "#1D2E76", 500);
-                    changeImageColor(dessert3ImageView, "#354694", 500);
+                    String[] colorArray = new String[]{"#98D0FF", "#63B2F5", "#63B2F5", "#322079", "#0A194A", "#000000", "#0A194A", "#1D2E76", "#354694"};
+                    animateByWeatherData(colorArray);
 
                     BluetoothService.writeData(0, 128, 255);
                 } else {
-                    changeGradientColor(bgGradient, "#B063F5", "#322079", 500);
-  //                  changeGradientColor(ColorPickerFragment.getInstance().getBgGradient(), "#401388", "#000000", 500);
-
-                    changeImageColor(dessert1ImageView, "#401388", 500);
-                    changeImageColor(dessert2ImageView, "#5F24B2", 500);
-                    changeImageColor(dessert3ImageView, "#7C3493", 500);
+                    String[] colorArray = new String[]{"#CB92FF", "#B063F5", "#B063F5", "#322079", "#401388", "#000000", "#401388", "#5F24B2", "#7C3493"};
+                    animateByWeatherData(colorArray);
 
                     BluetoothService.writeData(0, 0, 255);
                 }
@@ -242,53 +229,23 @@ public class WeatherFragment extends Fragment {
         call.enqueue(callback);
     }
 
-    // 함수가 끝나면 ValueAnimation 이 사라지기 때문에 클래스 변수로 등록해둔 animator 중에서 돌아가고 있지 않은 애니메이터를 찾아야 한다.
-    private void changeImageColor (ImageView imageView, String colorTo, long duration) {
-        for (ValueAnimator animator : animators) {
-            if (!animator.isRunning()) {
-                int colorFrom = (int) imageView.getTag();
+    private void animateByWeatherData (String[] colorArray) {
+        AnimateService.changeGradientColor(BluetoothFragment.getInstance().getBgGradient(), colorArray[0], colorArray[1], 500);
+        AnimateService.changeGradientColor(bgGradient, colorArray[2], colorArray[3], 500);
 
-                Log.d(TAG, "sent : " + colorFrom);
+        if (ColorPickerFragment.getInstance().getBgGradient() == null) {
+            Bundle bundle = new Bundle();
 
-                animator = ValueAnimator.ofObject(new ArgbEvaluator(), colorFrom, Color.parseColor(colorTo));
-                animator.setDuration(duration);
+            bundle.putString("topTo", colorArray[4]);
+            bundle.putString("bottomTo", colorArray[5]);
 
-                animator.addUpdateListener(animatorRun -> {
-                    imageView.setColorFilter((int) animatorRun.getAnimatedValue(), PorterDuff.Mode.SRC_IN);
-                    imageView.setTag(animatorRun.getAnimatedValue());
-                });
-
-                animator.start();
-            }
+            ColorPickerFragment.getInstance().setArguments(bundle);
+        } else {
+            AnimateService.changeGradientColor(ColorPickerFragment.getInstance().getBgGradient(), colorArray[4], colorArray[5], 500);
         }
-    }
 
-    private void changeGradientColor (GradientDrawable gradient, String topToString, String bottomToString, long duration) {
-        for (ValueAnimator animator : animators) {
-            if (!animator.isRunning()) {
-                final int topFrom = gradient.getColors()[0];
-                final int bottomFrom = gradient.getColors()[1];
-
-                final int topTo = Color.parseColor(topToString);
-                final int bottomTo = Color.parseColor(bottomToString);
-
-                final ArgbEvaluator evaluator = new ArgbEvaluator();
-
-                animator = TimeAnimator.ofFloat(0.0f, 1.0f);
-                animator.setDuration(duration);
-
-                animator.addUpdateListener(valueAnimator -> {
-                    Float fraction = valueAnimator.getAnimatedFraction();
-                    int topColor = (int) evaluator.evaluate(fraction, topFrom, topTo);
-                    int bottomColor = (int) evaluator.evaluate(fraction, bottomFrom, bottomTo);
-
-                    int[] colorArray = {topColor, bottomColor};
-
-                    gradient.setColors(colorArray);
-                });
-
-                animator.start();
-            }
-        }
+        AnimateService.changeImageColor(dessert1ImageView, colorArray[6], 500);
+        AnimateService.changeImageColor(dessert2ImageView, colorArray[7], 500);
+        AnimateService.changeImageColor(dessert3ImageView, colorArray[8], 500);
     }
 }
