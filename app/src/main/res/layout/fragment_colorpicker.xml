@@ -38,12 +38,13 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_above="@+id/IconImageView"
-            android:layout_marginBottom="24dp"
+            android:layout_marginBottom="16dp"
             android:text="#19584A"
             android:textSize="24sp"
             android:textColor="#ffffff"
             android:fontFamily="@font/noto_sans_bold"
             android:includeFontPadding="false"/>
+
 
         <com.larswerkman.holocolorpicker.SVBar
             android:id="@+id/SVBar"

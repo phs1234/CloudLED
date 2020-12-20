@@ -15,13 +15,13 @@
         android:text="Pairing Device"
         android:textColor="#ffffff"
         android:textSize="16sp"
-        android:fontFamily="@font/noto_sans_regular"
+        android:fontFamily="@font/noto_sans_medium"
         android:includeFontPadding="false"/>
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/pairingViewPager"
         android:layout_width="match_parent"
-        android:layout_height="240dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:overScrollMode="never" />
 
@@ -49,4 +49,25 @@
         android:textSize="16sp"
         android:fontFamily="@font/noto_sans_regular"
         android:includeFontPadding="false"/>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/AvailableViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_marginTop="12dp"
+        android:overScrollMode="never" />
+
+    <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+        android:id="@+id/AvailableDotsIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="24dp"
+        app:dotsColor="#ffffff"
+        app:dotsCornerRadius="4dp"
+        app:dotsSize="8dp"
+        app:dotsSpacing="4dp"
+        app:dotsWidthFactor="2.4"
+        app:selectedDotColor="#ffffff"
+        app:progressMode="true" />
 </LinearLayout>

@@ -20,7 +20,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDspk-wpq2vPY4uTpHvdzyAXzoG6OIHv7o" />
 
-        <activity android:name="com.devreport.cloud.main.MainActivity">
+        <activity android:name="com.devreport.cloud.activity.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,6 +28,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.devreport.cloud.map.MapActivity" />
+        <activity android:name="com.devreport.cloud.activity.map.MapActivity" />
     </application>
 </manifest>
