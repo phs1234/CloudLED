@@ -57,7 +57,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.stateTextView.setText("Not Connected");
 
         holder.linearLayout.setOnClickListener(view -> {
-            BluetoothDialog bluetoothDialog = new BluetoothDialog(context, bluetoothDevices[position].getName(), bluetoothDevices[position].getAddress());
+            BluetoothDialog bluetoothDialog = new BluetoothDialog(context, bluetoothDevices[4 * page + position].getName(), bluetoothDevices[4 * page + position].getAddress());
             bluetoothDialog.show();
         });
     }

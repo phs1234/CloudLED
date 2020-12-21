@@ -40,7 +40,7 @@ public class BluetoothService {
         } catch (IOException e) {
             e.printStackTrace();
 
-            Toast.makeText(context, "연결 실패", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
 
             return false;
         }

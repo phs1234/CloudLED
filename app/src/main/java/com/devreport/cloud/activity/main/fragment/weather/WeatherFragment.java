@@ -184,27 +184,27 @@ public class WeatherFragment extends Fragment {
                     String[] colorArray = new String[]{"#FF9A7C", "#F58563", "#F58563", "#792020", "#4A130A", "#000000", "#4A130A", "#76271D", "#943535"};
                     animateByWeatherData(colorArray);
 
-                    BluetoothService.writeColorData("#4A130A",'W');
+                    BluetoothService.writeColorData("#FF0000",'W');
                 } else if (temp >= 20) {
                     String[] colorArray = new String[]{"#EBB589", "#F0B07C", "#F0B07C", "#DE733C", "#884500", "#000000", "#884500", "#B97738", "#CC915C"};
                     animateByWeatherData(colorArray);
 
-                    BluetoothService.writeColorData("#884500",'W');
+                    BluetoothService.writeColorData("#FF5500",'W');
                 } else if (temp >= 10) {
                     String[] colorArray = new String[]{"#92DB71", "#81CF5E", "#81CF5E", "#26803C", "#0A4A25", "#000000", "#0A4A25", "#1D7624", "#569435"};
                     animateByWeatherData(colorArray);
 
-                    BluetoothService.writeColorData("#0A4A25",'W');
+                    BluetoothService.writeColorData("#00FF22",'W');
                 } else if (temp >= 0) {
                     String[] colorArray = new String[]{"#98D0FF", "#63B2F5", "#63B2F5", "#322079", "#0A194A", "#000000", "#0A194A", "#1D2E76", "#354694"};
                     animateByWeatherData(colorArray);
 
-                    BluetoothService.writeColorData("#0A194A",'W');
+                    BluetoothService.writeColorData("#0055FF",'W');
                 } else {
                     String[] colorArray = new String[]{"#CB92FF", "#B063F5", "#B063F5", "#322079", "#401388", "#000000", "#401388", "#5F24B2", "#7C3493"};
                     animateByWeatherData(colorArray);
 
-                    BluetoothService.writeColorData("#401388",'W');
+                    BluetoothService.writeColorData("#FF00FF",'W');
                 }
             }
 
